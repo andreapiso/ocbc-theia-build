@@ -1,0 +1,34 @@
+FROM ubuntu:bionic
+# install development tools
+RUN apt-get update && \
+    apt-get install -y libsecret-1-dev && \
+    apt-get install -y curl sudo build-essential jq vim && \
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && \
+    apt-get install -y nodejs && \
+    npm install -g yarn
+
+# add theia installation file
+COPY package.json run_theia.sh /edsp-theia/
+RUN chmod +x /edsp-theia/run_theia.sh
+ARG GITHUB_TOKEN
+
+# build theia
+WORKDIR /edsp-theia
+
+RUN yarn && \
+    NODE_OPTIONS="--max_old_space_size=4096" yarn theia build && \
+	# yarn theia download:plugins && \
+	yarn --production && \
+    yarn autoclean --init && \
+    echo *.ts >> .yarnclean && \
+    echo *.ts.map >> .yarnclean && \
+    echo *.spec.* >> .yarnclean && \
+    yarn autoclean --force && \
+    yarn cache clean
+
+# create debian package
+RUN npm run build-deb
+
+# copy to host
+FROM scratch AS export-stage
+COPY --from=0 /edsp-theia/edsp-theia_0.0.1_all.deb .

@@ -1,0 +1,141 @@
+FROM ubuntu:bionic
+
+# VSCode extensions
+RUN apt-get update && apt-get install -y bsdtar curl zip
+RUN mkdir -p /plugins
+
+RUN curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/bat-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-bat/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/clojure-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-clojure/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/coffeescript-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-coffeescript/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/configuration-editing-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-configuration-editing/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/cpp-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-cpp/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/csharp-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-csharp/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/css-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-css/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/debug-auto-launch-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-debug-auto-launch/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/docker-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-docker/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/emmet-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-emmet/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/fsharp-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-fsharp/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/go-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-go/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/groovy-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-groovy/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/grunt-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-grunt/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/gulp-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-gulp/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/handlebars-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-handlebars/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/hlsl-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-hlsl/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/html-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-html/ && \
+    curl -JL https://open-vsx.org/api/vscode/html-language-features/1.49.0/file/vscode.html-language-features-1.49.0.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-html-language-features/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/ini-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-ini/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/jake-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-jake/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/java-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-java/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/javascript-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-javascript/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/json-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-json/ && \
+    curl -JL https://open-vsx.org/api/vscode/json-language-features/1.46.1/file/vscode.json-language-features-1.46.1.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-json-language-features/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/less-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-less/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/log-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-log/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/lua-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-lua/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/make-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-make/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/markdown-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-markdown/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/merge-conflict-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-merge-conflicts/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/npm-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-npm/ && \
+    curl -JL https://github.com/theia-ide/vscode-node-debug/releases/download/v1.35.3/node-debug-1.35.3.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-node-debug/ && \
+    curl -JL https://github.com/theia-ide/vscode-node-debug2/releases/download/v1.33.0/node-debug2-1.33.0.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-node-debug2/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/objective-c-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-objective-c/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/perl-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-perl/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/powershell-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-powershell/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/pug-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-pug/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/python-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-python/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/r-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-r/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/razor-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-razor/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/ruby-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-ruby/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/rust-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-rust/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/scss-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-scss/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/shaderlab-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-shaderlab/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/shellscript-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-shellscript/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/sql-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-sql/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/swift-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-swift/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/theme-abyss-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-theme-abyss/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/theme-defaults-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-theme-defaults/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/theme-kimbie-dark-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-theme-kimbie-dark/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/theme-monokai-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-theme-monokai/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/theme-monokai-dimmed-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-theme-dimmed/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/theme-quietlight-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-theme-quietlight/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/theme-red-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-theme-red/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/theme-solarized-dark-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-theme-solarized-dark/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/theme-tomorrow-night-blue-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-theme-tomorrow-night-blue/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/typescript-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-typescript/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/typescript-language-features-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-typescript-language-features/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/vb-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-vb/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/vscode-theme-seti-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-icon-theme-seti/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/xml-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-xml/ && \
+    curl -JL https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/yaml-1.39.1-prel.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-builtin-yaml/ && \
+    curl -JL https://github.com/theia-ide/editorconfig-vscode/releases/download/v0.14.4/EditorConfig-0.14.4.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-editorconfig/ && \
+    curl -JL https://open-vsx.org/api/ms-python/python/2020.8.105369/file/ms-python.python-2020.8.105369.vsix | bsdtar -xvf - extension && \
+    mv extension /plugins/vscode-python/
+
+# zip and copy to host
+RUN zip -r plugins.zip /plugins
+FROM scratch AS export-stage
+COPY --from=0 /plugins.zip .
