@@ -18,7 +18,8 @@
         "@theia/preview": "latest",
         "@theia/search-in-workspace": "latest",
         "@theia/terminal": "latest",
-        "@theia/vsx-registry": "latest"
+        "@theia/vsx-registry": "latest",
+        "@theia/mini-browser": "latest"
     },
     "devDependencies": {
         "@theia/cli": "latest"
